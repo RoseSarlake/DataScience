@@ -43,7 +43,6 @@ x6 <- matrix (runif(n=30, min = -2, max = 2) ,nrow=5 ,ncol=6 , byrow=FALSE )
 print(x6)
 
 # 7.- Plot each column of the data frame of exercise 4 in red using points, in green using a line and in blue using points on a line. The three plots have to be arranged on the same row.
-
 print("—————————NO.7—————————")
 #matplot(cbind(x4$a,x4$b,x4$c),type=c("p","l","b"),col=c("red","green","blue"),lty=c(1,1,1))
 plot(x4$c,ylab="value",type="b",col="blue")
