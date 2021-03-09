@@ -16,4 +16,4 @@ summary(linear.model3)
 plot(linear.model3)
 
 # 4.- Using the mtcars dataset, display a table on the console with the name, horsepower and number of cylinders of the cars with a horsepower value higher than the mean
-mtcars[c("hp","cyl")] [which(mtcars$hp >= mean(mtcars$hp))
+mtcars[c("hp","cyl")] [which(mtcars$hp >= mean(mtcars$hp)),]
