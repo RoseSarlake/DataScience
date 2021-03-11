@@ -25,6 +25,11 @@ com_odd_mean <- function (elem){
 x3 <- com_odd_mean(x1)
 print(x3)
 
+#REUSE FUNCTION
+com_odd_mean2 <-function(x){
+  return (mean(x[which(is_odd(1:length(x)))]))
+}
+
 # 4.- Create a data frame where each column will be generated using the vector of exercise 1 as base. Column i will be generafted using the aforementioned vector incrementing all its elements in i units. The data frame will have 3 columns called a, b and c
 print("—————————NO.4—————————")
 x4 <- data.frame (a = x1+1,b=x1+2,c=x1+3)
@@ -37,6 +42,9 @@ print(x5_1)
 x5_2 = max(x4[1:5,3])
 print(x5_2)
 
+# more compact way
+x5 <- sapply(x4[1:5,c(2,3)],max)
+
 # 6.- Create a 5x6 matrix with elements sampled from a uniform probability distribution on the interval from -2 to 2
 print("—————————NO.6—————————")
 x6 <- matrix (runif(n=30, min = -2, max = 2) ,nrow=5 ,ncol=6 , byrow=FALSE )
@@ -48,3 +56,8 @@ print("—————————NO.7—————————")
 plot(x4$c,ylab="value",type="b",col="blue")
 lines(x4$b, ylab="value",type="l",col="green")
 points(x4$a,ylab="value",type="p",col="red")
+#another way
+par(mfrow= c(1,3))
+plot(x4[,1],col="red")
+plot(x4[,2],col="green", t="l")
+plot(x4[,3],col="blue",t = "b")
