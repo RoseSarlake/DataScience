@@ -28,3 +28,17 @@ lda.pred<-predict(lda.model,newdata=test.set)
 adapted.pred<-lda.pred$posterior[,1]#probability of positive class
 #ROCR requirement lowest level −−>negative class
 adapted.labels<-ifelse(test.set$class=="benign",0,1)
+
+
+#Computer ROC curve and AUC
+asessModel<-function(adpted.pred,adapted.labels)
+{
+  pred<-prediction(adpted.pred,adapted.labels)
+  plot(performance(pred,'tpr','fpr'))
+  #print(performance(pred,'tpr','fpr'))
+  auc<-performance(pred,measure = "auc")
+  print(attr(auc,"y.values")[[1]])
+  print("-------------")
+}
+asessModel(adapted.pred,adapted.labels)
+
