@@ -17,6 +17,14 @@ train<-sample(nrow(data.set),2*nrow(data.set)/3,replace = FALSE)
 train.set<-data.set[train,]
 test.set<-data.set[-train,]
 
+#Oversample minority class in training set
+smoted<-SMOTE(train.set[,-1],train.set[,1],K=3,dup_size = 0)
+table(smoted$data$class)
+#head(smoted$data)
+col<-ncol(smoted$data)
+train.set<-smoted$data[,c(col,seq(1,col-1))]
+names(train.set)<-names
+
 model<-knn(train.set[,-1],test.set[,-1],train.set$default,k=7,prob=T)
 probs<-attr(model,"prob") #prob of the winning class
 
