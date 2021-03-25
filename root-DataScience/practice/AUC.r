@@ -38,7 +38,10 @@ asessModel<-function(adpted.pred,adapted.labels)
   #print(performance(pred,'tpr','fpr'))
   auc<-performance(pred,measure = "auc")
   print(attr(auc,"y.values")[[1]])
+  #TPR, FPR and cutoff values
+  print(performance(pred, measure = "tpr" )@y.values [[1]])
+  print(performance(pred, measure = "fpr" )@y.values [[1]])
+  print(performance(pred,'tpr','fpr') @alpha.values [[1]])
   print("-------------")
 }
 asessModel(adapted.pred,adapted.labels)
-
