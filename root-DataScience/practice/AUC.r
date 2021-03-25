@@ -28,6 +28,7 @@ lda.pred<-predict(lda.model,newdata=test.set)
 adapted.pred<-lda.pred$posterior[,1]#probability of positive class
 #ROCR requirement lowest level −−>negative class
 adapted.labels<-ifelse(test.set$class=="benign",0,1)
+#adapted.labels<-ifelse(test.set$class=="benign",1,0) #reverse classfier
 
 
 #Computer ROC curve and AUC
