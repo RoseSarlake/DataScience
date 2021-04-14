@@ -39,3 +39,21 @@ nrow(train.sets[[1]])#25
 
 nrow(test.sets[[3]])#6
 nrow(train.sets[[3]])#26
+
+#<---------correction------------>
+K<-5
+nrows<-nrow(mtcars)
+#shuffle dataset
+dataset<-mtcars[sample(nrows,nrows,replace=FALSE),]
+folds<-cut(1:nrows,breaks=K,labels=FALSE)
+for (i in 1:K) {
+  test.indices<-which(folds==i)
+  train.indices<-which(folds!=i)
+  
+  #check
+  print("Errors")
+  print(length(which(sort(c(test.indices,train.indices))!=1:nrows)))
+  
+  test.set<-dataset[test.indices,]
+  train.set<-dataset[train.indices,]
+}
