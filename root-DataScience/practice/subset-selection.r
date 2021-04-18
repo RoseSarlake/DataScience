@@ -25,6 +25,9 @@ for (i in 1:k) {
   
   # best subsets using fold i
   best.fit <- regsubsets(hp~., data = trainData, nvmax = nSets)
+
+  # check the names
+  #names(coef(best.fit,i))
   
   for (j in 1:nSets) {
     prediction <-make.prediction(best.fit,testData,j)
