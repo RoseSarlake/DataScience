@@ -18,7 +18,7 @@ train<- sample(length(dataset$origin),length(dataset$origin)/2,replace=FALSE)
 # the 9th var - name should be excluded
 train.set<-dataset[train,c(-9)]
 test.set<-dataset[-train,c(-9)]
-# for different origin, give the correspongding name
+# for different origin, give the corresponding name
 American = levels(factor(dataset$origin))[1]
 European = levels(factor(dataset$origin))[2]
 Japanese = levels(factor(dataset$origin))[3]
