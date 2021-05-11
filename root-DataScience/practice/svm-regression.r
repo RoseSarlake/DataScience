@@ -1,0 +1,7 @@
+library(MASS)
+data(Boston)
+train<- sample(1:nrow(Boston),nrow(Boston)/2)
+svmfit<- svm(medv~., data = Boston[train,],kernel="linear",cost = 10)
+summary(svmfit)
+svmfit.predict<- predict(svmfit,newdata=Boston[-train,])
+sqrt(mean((Boston[-train,"medv"]-svmfit.predict)^2))
